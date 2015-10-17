@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import OAuthSwift
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate {
 
     var window: UIWindow?
 
@@ -42,8 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        print("inside application function: opening url")
-        TwitterClient.sharedInstance.openURL(url)
+        //if (url == NSURL(string: "cptwitterdemo1://oauth")) {
+        if ((url.absoluteString.rangeOfString("cptwitterdemo1://oauth")) != nil) {
+            TwitterClient.sharedInstance.openURL(url)
+        }
+        else {
+            OAuth2Swift.handleOpenURL(url)
+        }
+        
         return true
     }
 
