@@ -13,6 +13,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var tweets:[Tweet]?
 
     @IBAction func onSignOut(sender: AnyObject) {
+        print("inside TweetsViewController: onsignout")
+        TwitterUser.currentTwitterUser?.logout()
     }
     override func viewDidLoad() {
         super.viewDidLoad()

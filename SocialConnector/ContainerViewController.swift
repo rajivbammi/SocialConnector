@@ -17,14 +17,18 @@ class ContainerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("inside container")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userLogin", name: userDidLoginNotification, object: nil)
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userLogout", name: userDidLogoutNotification, object: nil)
 
         // Check if Twitter User or insta User
         // If not then show login
         //else show timeline
-        if((User.sharedInstance.twitterUser) != nil) {
+        //if((User.sharedInstance.twitterUser) != nil) {
+        if (TwitterUser.currentTwitterUser != nil) {
             print("inside if")
+            contentViewController = storyboard!.instantiateViewControllerWithIdentifier("TweetNagivationController") as! UINavigationController
+            addViewControllers(contentViewController, destView: contentPanelView)
         } else {
             print("inside Containerview: Twitter User is null. Calling login")
             self.loginViewController = storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
@@ -59,4 +63,11 @@ class ContainerViewController: UIViewController {
         //self.contentViewController.view.frame = self.view.frame
         //self.contentViewController.didMoveToParentViewController(self)
     }
+    
+    func userLogout() {
+        print("Inside ContainerviewController: userlogout", terminator: "")
+        self.loginViewController = storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+        addViewControllers(self.loginViewController, destView: contentPanelView)
+    }
+
 }

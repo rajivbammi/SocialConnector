@@ -49,6 +49,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 let twitterUser = TwitterUser(dictionary: response as! NSDictionary)
                 User.sharedInstance.twitterUser = twitterUser
+                TwitterUser.currentTwitterUser = twitterUser
                 print("Inside TwitterClient - user is: \(User.sharedInstance.twitterUser!.tName)")
                 self.loginCompletion?(user: twitterUser, error: nil)
                 }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
@@ -62,7 +63,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     }
     
     func logout() {
-        User.currentUser = nil
+        //User.cu = nil
         TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
         
        // NSNotificationCenter.defaultCenter().postNotificationName(userDidLogoutNotification, object: nil)

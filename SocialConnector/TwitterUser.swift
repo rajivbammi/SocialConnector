@@ -7,7 +7,11 @@
 //
 
 import UIKit
+var _currentTwitterUser: TwitterUser?
+let currentTwitterUserKey = "kCurrentTwitterUserKey"
 let userDidLoginNotification = "userDidLoginNotification"
+let userDidLogoutNotification = "userDidLogoutNotification"
+
 
 class TwitterUser: NSObject {
     var tName: String?
@@ -42,33 +46,34 @@ class TwitterUser: NSObject {
     
     func logout() {
         //User.currentUser = nil
+        TwitterUser.currentTwitterUser = nil
         TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
         User.sharedInstance.twitterUser = nil
-        //NSNotificationCenter.defaultCenter().postNotificationName(userDidLogoutNotification, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(userDidLogoutNotification, object: nil)
     }
     
-    /*class var currentUser: User? {
+   class var currentTwitterUser: TwitterUser? {
         get {
-        if _currentUser == nil {
-        let data = NSUserDefaults.standardUserDefaults().objectForKey(currentUserKey) as? NSData
+        if _currentTwitterUser == nil {
+        let data = NSUserDefaults.standardUserDefaults().objectForKey(currentTwitterUserKey) as? NSData
         if data != nil {
         let dictionary = (try! NSJSONSerialization.JSONObjectWithData(data!, options: [])) as! NSDictionary
-        _currentUser = User(dictionary: dictionary)
+        _currentTwitterUser = TwitterUser(dictionary: dictionary)
         }
         }
-        return _currentUser
+        return _currentTwitterUser
         }
         set(user) {
-            _currentUser = user
+            _currentTwitterUser = user
             
-            if _currentUser != nil {
-                let data = try? NSJSONSerialization.dataWithJSONObject(user!.dictionary!, options: [])
-                NSUserDefaults.standardUserDefaults().setObject(data, forKey: currentUserKey)
+            if _currentTwitterUser != nil {
+                let data = try? NSJSONSerialization.dataWithJSONObject(user!.tDictionary!, options: [])
+                NSUserDefaults.standardUserDefaults().setObject(data, forKey: currentTwitterUserKey)
                 
             } else {
-                NSUserDefaults.standardUserDefaults().setObject(nil, forKey: currentUserKey)
+                NSUserDefaults.standardUserDefaults().setObject(nil, forKey: currentTwitterUserKey)
             }
             NSUserDefaults.standardUserDefaults().synchronize()
         }
-    }*/
+    }
 }

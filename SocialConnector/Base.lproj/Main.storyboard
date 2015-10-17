@@ -70,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCl-DL-Ftc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066" y="386"/>
+            <point key="canvasLocation" x="1068" y="386"/>
         </scene>
         <!--Tweets View Controller-->
         <scene sceneID="D9s-vz-Lf3">
