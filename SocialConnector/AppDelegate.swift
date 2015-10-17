@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        print("inside application function")
+        print("inside application function: opening url")
         TwitterClient.sharedInstance.openURL(url)
         return true
     }

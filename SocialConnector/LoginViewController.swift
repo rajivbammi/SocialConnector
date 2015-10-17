@@ -21,11 +21,10 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func onTwitterLogin(sender: AnyObject) {
-        print("inside Twitter Login")
+        print("Inside LoginViewcontroller:onTwitterLogin")
         TwitterUser.loginWithCompletion({ () -> Void in
             // logged in
         })
-
     }
 
     

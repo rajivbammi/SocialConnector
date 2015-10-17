@@ -14,6 +14,9 @@ let twitterBaseURL = NSURL(string: "https://api.twitter.com")
 
 class TwitterClient: BDBOAuth1RequestOperationManager {
     //var loginCompletion: ((TwitterUser: TwitterUser?, error: NSError?) -> ())?
+    //var loginCompletion: ((user: TwitterUser?, error: NSError?) -> ())?
+    
+    var loginCompletion: ((user: TwitterUser, error: NSError?) -> ())?
     
     class var sharedInstance: TwitterClient {
         struct Static {
@@ -22,43 +25,65 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         return Static.instance
     }
 
-    func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
-        //loginCompletion = completion
+    func loginWithCompletion(completion: (user: TwitterUser?, error: NSError?) -> ()) {
+        loginCompletion = completion
         
         // Fetch request token and redirect to autherization page
         TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
         TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "cptwitterdemo1://oauth"), scope:
             nil, success: {(requestToken: BDBOAuth1Credential!) -> Void in
-                print("Got request token")
+                print("Inside Twitter Client:loginWithCompletion")
                 let authURL = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")
                 UIApplication.sharedApplication().openURL(authURL!)
             }) { (error: NSError!) -> Void in
-                print("Failure in request toke")
+                print("Failure in request token")
         }
     }
     
     func openURL(url: NSURL) {
+        print("Inside Twitter Client:openURL")
         fetchAccessTokenWithPath("oauth/access_token", method: "Post", requestToken: BDBOAuth1Credential(queryString: url.query), success: { (accessToken: BDBOAuth1Credential!) -> Void in
             
-            print("Got access token")
+            print("Inside TwitterClient: openURL - got access token")
             TwitterClient.sharedInstance.requestSerializer.saveAccessToken(accessToken)
             TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                print("==========User=======\n:\(response)")
-                //let user = User(dictionary: response as! NSDictionary)
-                //User.currentUser = user
-                //println("user \(user.name)")
-                //self.loginCompletion!(user: user, error: nil)
-                
+                let twitterUser = TwitterUser(dictionary: response as! NSDictionary)
+                User.sharedInstance.twitterUser = twitterUser
+                print("Inside TwitterClient - user is: \(User.sharedInstance.twitterUser!.tName)")
+                self.loginCompletion?(user: twitterUser, error: nil)
                 }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                     print("Error Getting current user")
                     //self.loginCompletion!(user:nil, error: error)
             })
-            
             }) { (error: NSError!) -> Void in
                 print("Failure in getting access token")
                 //self.loginCompletion!(user:nil, error: error)
         }
     }
+    
+    func logout() {
+        User.currentUser = nil
+        TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
+        
+       // NSNotificationCenter.defaultCenter().postNotificationName(userDidLogoutNotification, object: nil)
+    }
 
+    
+    func homeTimelineWithParams (params: NSDictionary?, completion: (tweets:[Tweet]?, error: NSError?) -> ()) {
+        GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            print("$$$$$$$$$$$$$$$")
+            print(response)
+            /*for tweet in tweets {
+            println("Text: \(tweet.text), Created at \(tweet.createdAt)")
+            }*/
+            completion(tweets: tweets, error: nil)
+            
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                print("Error in fetching status")
+                completion(tweets: nil, error: error)
+        })
+        
+    }
     
 }
