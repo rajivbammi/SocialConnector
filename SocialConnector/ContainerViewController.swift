@@ -24,7 +24,7 @@ class ContainerViewController: UIViewController {
         // Check if Twitter User or insta User
         // If not then show login
         //else show timeline
-        //if((User.sharedInstance.twitterUser) != nil) {
+        print("Printing twitter user")
         if (TwitterUser.currentTwitterUser != nil) {
             print("inside if")
             contentViewController = storyboard!.instantiateViewControllerWithIdentifier("TweetNagivationController") as! UINavigationController

@@ -21,18 +21,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         print("inside Tweets View controller: view did load")
         TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
             self.tweets = tweets
-            //println("Tweets :\(self.tweets)")
             self.tableView.reloadData()
         })
         
-        //tableView.estimatedRowHeight = 70
+        tableView.estimatedRowHeight = 70
         tableView.dataSource = self
         tableView.delegate = self
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.tweets != nil {
-            //println(self.tweets!.count)
             return self.tweets!.count
         } else {
             return 0
@@ -42,12 +40,15 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell", forIndexPath: indexPath) as! TweetTableViewCell
         let tweet =  self.tweets![indexPath.row]
+        
         cell.tweetTextLabel!.text = tweet.text
         cell.nameLabel.text =
             tweet.user?.tName
         cell.accountLabel.text = tweet.user?.tScreenname
+        
         let url = NSURL(string: tweet.user?.tProfileImageUrl as String!)
         cell.tweetImage.setImageWithURL(url!)
+        print(url)
         return cell
     }
 }

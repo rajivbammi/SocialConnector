@@ -13,10 +13,7 @@ let twitterConsumerSecret = "NXM4J5Yiy8WwMyERTbiEgX6Qlx4OEqWvqitGJjqUrHa3V1IYpi"
 let twitterBaseURL = NSURL(string: "https://api.twitter.com")
 
 class TwitterClient: BDBOAuth1RequestOperationManager {
-    //var loginCompletion: ((TwitterUser: TwitterUser?, error: NSError?) -> ())?
-    //var loginCompletion: ((user: TwitterUser?, error: NSError?) -> ())?
-    
-    var loginCompletion: ((user: TwitterUser, error: NSError?) -> ())?
+    var loginCompletion: ((user: TwitterUser?, error: NSError?) -> ())?
     
     class var sharedInstance: TwitterClient {
         struct Static {
@@ -47,34 +44,31 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             print("Inside TwitterClient: openURL - got access token")
             TwitterClient.sharedInstance.requestSerializer.saveAccessToken(accessToken)
             TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                
                 let twitterUser = TwitterUser(dictionary: response as! NSDictionary)
-                User.sharedInstance.twitterUser = twitterUser
                 TwitterUser.currentTwitterUser = twitterUser
-                print("Inside TwitterClient - user is: \(User.sharedInstance.twitterUser!.tName)")
                 self.loginCompletion?(user: twitterUser, error: nil)
                 }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                     print("Error Getting current user")
-                    //self.loginCompletion!(user:nil, error: error)
+                    self.loginCompletion!(user: nil, error: error)
             })
             }) { (error: NSError!) -> Void in
                 print("Failure in getting access token")
-                //self.loginCompletion!(user:nil, error: error)
+                //self.loginCompletion!(user: nil, error: error)
         }
     }
     
     func logout() {
         //User.cu = nil
         TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
-        
-       // NSNotificationCenter.defaultCenter().postNotificationName(userDidLogoutNotification, object: nil)
+        //NSNotificationCenter.defaultCenter().postNotificationName(userDidLogoutNotification, object: nil)
     }
 
     
     func homeTimelineWithParams (params: NSDictionary?, completion: (tweets:[Tweet]?, error: NSError?) -> ()) {
         GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-            print("$$$$$$$$$$$$$$$")
-            print(response)
+            //print(response)
             /*for tweet in tweets {
             println("Text: \(tweet.text), Created at \(tweet.createdAt)")
             }*/

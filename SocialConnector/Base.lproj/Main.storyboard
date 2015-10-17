@@ -95,19 +95,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="317" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Test name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2y-Aw-apR">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Test Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2y-Aw-apR">
                                                     <rect key="frame" x="63" y="5" width="63" height="16"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xzG-kl-Isi">
-                                                    <rect key="frame" x="8" y="5" width="48" height="38"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="38" id="WVD-06-tLU"/>
-                                                        <constraint firstAttribute="width" constant="48" id="mFw-FG-Xld"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="My first tweets comes here..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLR-2v-hEq">
                                                     <rect key="frame" x="63" y="27" width="174" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -120,6 +113,13 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xzG-kl-Isi">
+                                                    <rect key="frame" x="28" y="27" width="48" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="38" id="WVD-06-tLU"/>
+                                                        <constraint firstAttribute="width" constant="48" id="mFw-FG-Xld"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="R2y-Aw-apR" firstAttribute="top" secondItem="cbb-q3-L97" secondAttribute="top" constant="5" id="2yH-o1-pqQ"/>
@@ -137,7 +137,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="accountLabel" destination="jRo-Zh-6eW" id="T27-pC-YPC"/>
-                                            <outlet property="nameLabel" destination="jRo-Zh-6eW" id="G3P-P7-BuA"/>
+                                            <outlet property="nameLabel" destination="R2y-Aw-apR" id="eaR-Vr-Bwt"/>
                                             <outlet property="tweetImage" destination="xzG-kl-Isi" id="aCr-ee-CnN"/>
                                             <outlet property="tweetTextLabel" destination="gLR-2v-hEq" id="ASJ-wP-fwG"/>
                                         </connections>

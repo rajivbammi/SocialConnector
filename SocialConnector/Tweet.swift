@@ -27,10 +27,6 @@ class Tweet: NSObject {
         
         favorite_count = dictionary["favorite_count"] as? String
         retweet_count = dictionary["retweet_count"] as? String
-        //println("Value")
-        //var user1 = dictionary["user"] as! NSDictionary
-        
-        //println(user1["profile_image_url"])
     }
     
     class func tweetsWithArray(array: [NSDictionary]) -> [Tweet] {

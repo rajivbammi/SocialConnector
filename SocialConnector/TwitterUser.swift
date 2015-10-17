@@ -34,7 +34,6 @@ class TwitterUser: NSObject {
         TwitterClient.sharedInstance.loginWithCompletion { (user, error) -> () in
             if (user != nil) {
                 NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: userDidLoginNotification, object: nil))
-                User.sharedInstance.twitterUser = user
                 print("Inside Twitter User: loginWithCompletion: login successful")
                 //completion()
             } else {
@@ -45,10 +44,8 @@ class TwitterUser: NSObject {
     
     
     func logout() {
-        //User.currentUser = nil
         TwitterUser.currentTwitterUser = nil
         TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
-        User.sharedInstance.twitterUser = nil
         NSNotificationCenter.defaultCenter().postNotificationName(userDidLogoutNotification, object: nil)
     }
     
