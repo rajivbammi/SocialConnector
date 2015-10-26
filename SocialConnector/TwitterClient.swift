@@ -59,19 +59,13 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     }
     
     func logout() {
-        //User.cu = nil
         TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
-        //NSNotificationCenter.defaultCenter().postNotificationName(userDidLogoutNotification, object: nil)
     }
 
     
     func homeTimelineWithParams (params: NSDictionary?, completion: (tweets:[Tweet]?, error: NSError?) -> ()) {
         GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-            //print(response)
-            /*for tweet in tweets {
-            println("Text: \(tweet.text), Created at \(tweet.createdAt)")
-            }*/
             completion(tweets: tweets, error: nil)
             
             }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in

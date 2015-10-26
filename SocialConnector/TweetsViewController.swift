@@ -48,7 +48,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         let url = NSURL(string: tweet.user?.tProfileImageUrl as String!)
         cell.tweetImage.setImageWithURL(url!)
-        //print(url)
         return cell
     }
 }

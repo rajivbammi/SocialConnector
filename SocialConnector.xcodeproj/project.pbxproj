@@ -8,13 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		9F854966CE095878AC01B81D /* libPods-SocialConnector.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE6E7BE15D355D0BEE7B3C3D /* libPods-SocialConnector.a */; };
+		E754BCD31BD62F3900441951 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E754BCD21BD62F3900441951 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
+		E754BCD51BD6300900441951 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E754BCD41BD6300900441951 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		E754BCD71BD6301300441951 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E754BCD61BD6301300441951 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
+		E754BD1B1BD69E8900441951 /* FacebookClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754BD1A1BD69E8900441951 /* FacebookClient.swift */; settings = {ASSET_TAGS = (); }; };
+		E754BD1D1BD69EC400441951 /* FacebookUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754BD1C1BD69EC400441951 /* FacebookUser.swift */; settings = {ASSET_TAGS = (); }; };
+		E754BD1F1BD6B89400441951 /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754BD1E1BD6B89400441951 /* FacebookViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		E754BD211BD6B9D500441951 /* FacebookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754BD201BD6B9D500441951 /* FacebookTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		E75A66FA1BD17E1C002C6E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A66F91BD17E1C002C6E04 /* AppDelegate.swift */; };
 		E75A66FC1BD17E1C002C6E04 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A66FB1BD17E1C002C6E04 /* LoginViewController.swift */; };
 		E75A66FF1BD17E1C002C6E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75A66FD1BD17E1C002C6E04 /* Main.storyboard */; };
 		E75A67011BD17E1C002C6E04 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E75A67001BD17E1C002C6E04 /* Images.xcassets */; };
 		E75A67041BD17E1C002C6E04 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E75A67021BD17E1C002C6E04 /* LaunchScreen.xib */; };
 		E75A67101BD17E1C002C6E04 /* SocialConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A670F1BD17E1C002C6E04 /* SocialConnectorTests.swift */; };
-		E7A95F021BD184E4000CBA11 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A95F011BD184E4000CBA11 /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		E7A95F041BD184EF000CBA11 /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A95F031BD184EF000CBA11 /* TwitterUser.swift */; settings = {ASSET_TAGS = (); }; };
 		E7A95F061BD18501000CBA11 /* InstagramUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A95F051BD18501000CBA11 /* InstagramUser.swift */; settings = {ASSET_TAGS = (); }; };
 		E7A95F0C1BD186A0000CBA11 /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A95F0B1BD186A0000CBA11 /* TwitterClient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -22,6 +28,9 @@
 		E7A95F101BD21B84000CBA11 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A95F0F1BD21B84000CBA11 /* TweetsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E7A95F121BD21BC5000CBA11 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A95F111BD21BC5000CBA11 /* Tweet.swift */; settings = {ASSET_TAGS = (); }; };
 		E7A95F141BD21EE9000CBA11 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A95F131BD21EE9000CBA11 /* TweetTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		E7E90D531BD4C52300B4EF02 /* InstagramClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E90D521BD4C52300B4EF02 /* InstagramClient.swift */; settings = {ASSET_TAGS = (); }; };
+		E7E90D551BD559EA00B4EF02 /* InstagramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E90D541BD559EA00B4EF02 /* InstagramViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		E7E90D571BD55BB500B4EF02 /* InstagramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E90D561BD55BB500B4EF02 /* InstagramTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +46,13 @@
 /* Begin PBXFileReference section */
 		3DDB668F0B2D648E08465435 /* Pods-SocialConnector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialConnector.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialConnector/Pods-SocialConnector.release.xcconfig"; sourceTree = "<group>"; };
 		DC6DAB5FF1C1136486CCB126 /* Pods-SocialConnector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialConnector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialConnector/Pods-SocialConnector.debug.xcconfig"; sourceTree = "<group>"; };
+		E754BCD21BD62F3900441951 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Documents/FacebookSDKs-iOS-20151007/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		E754BCD41BD6300900441951 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Documents/FacebookSDKs-iOS-20151007/Bolts.framework"; sourceTree = "<group>"; };
+		E754BCD61BD6301300441951 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../Documents/FacebookSDKs-iOS-20151007/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		E754BD1A1BD69E8900441951 /* FacebookClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookClient.swift; sourceTree = "<group>"; };
+		E754BD1C1BD69EC400441951 /* FacebookUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookUser.swift; sourceTree = "<group>"; };
+		E754BD1E1BD6B89400441951 /* FacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookViewController.swift; sourceTree = "<group>"; };
+		E754BD201BD6B9D500441951 /* FacebookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookTableViewCell.swift; sourceTree = "<group>"; };
 		E75A66F41BD17E1C002C6E04 /* SocialConnector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialConnector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75A66F81BD17E1C002C6E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E75A66F91BD17E1C002C6E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +63,6 @@
 		E75A67091BD17E1C002C6E04 /* SocialConnectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialConnectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75A670E1BD17E1C002C6E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E75A670F1BD17E1C002C6E04 /* SocialConnectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialConnectorTests.swift; sourceTree = "<group>"; };
-		E7A95F011BD184E4000CBA11 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E7A95F031BD184EF000CBA11 /* TwitterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
 		E7A95F051BD18501000CBA11 /* InstagramUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramUser.swift; sourceTree = "<group>"; };
 		E7A95F081BD1863A000CBA11 /* SocialConnector-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocialConnector-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -56,6 +71,9 @@
 		E7A95F0F1BD21B84000CBA11 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		E7A95F111BD21BC5000CBA11 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		E7A95F131BD21EE9000CBA11 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		E7E90D521BD4C52300B4EF02 /* InstagramClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramClient.swift; sourceTree = "<group>"; };
+		E7E90D541BD559EA00B4EF02 /* InstagramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramViewController.swift; sourceTree = "<group>"; };
+		E7E90D561BD55BB500B4EF02 /* InstagramTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramTableViewCell.swift; sourceTree = "<group>"; };
 		EE6E7BE15D355D0BEE7B3C3D /* libPods-SocialConnector.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialConnector.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -64,7 +82,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E754BCD51BD6300900441951 /* Bolts.framework in Frameworks */,
 				9F854966CE095878AC01B81D /* libPods-SocialConnector.a in Frameworks */,
+				E754BCD71BD6301300441951 /* FBSDKLoginKit.framework in Frameworks */,
+				E754BCD31BD62F3900441951 /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +139,9 @@
 		E75A66F61BD17E1C002C6E04 /* SocialConnector */ = {
 			isa = PBXGroup;
 			children = (
+				E754BCD61BD6301300441951 /* FBSDKLoginKit.framework */,
+				E754BCD41BD6300900441951 /* Bolts.framework */,
+				E754BCD21BD62F3900441951 /* FBSDKCoreKit.framework */,
 				E7A95F081BD1863A000CBA11 /* SocialConnector-Bridging-Header.h */,
 				E7A95F071BD18595000CBA11 /* APIs */,
 				E7A95F001BD183D9000CBA11 /* Views */,
@@ -160,9 +184,11 @@
 		E7A95EFE1BD183B2000CBA11 /* Contollers */ = {
 			isa = PBXGroup;
 			children = (
+				E754BD1E1BD6B89400441951 /* FacebookViewController.swift */,
 				E75A66FB1BD17E1C002C6E04 /* LoginViewController.swift */,
 				E7A95F0D1BD1CFB6000CBA11 /* ContainerViewController.swift */,
 				E7A95F0F1BD21B84000CBA11 /* TweetsViewController.swift */,
+				E7E90D541BD559EA00B4EF02 /* InstagramViewController.swift */,
 			);
 			name = Contollers;
 			sourceTree = "<group>";
@@ -170,10 +196,10 @@
 		E7A95EFF1BD183D0000CBA11 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E7A95F011BD184E4000CBA11 /* User.swift */,
 				E7A95F031BD184EF000CBA11 /* TwitterUser.swift */,
 				E7A95F051BD18501000CBA11 /* InstagramUser.swift */,
 				E7A95F111BD21BC5000CBA11 /* Tweet.swift */,
+				E754BD1C1BD69EC400441951 /* FacebookUser.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -182,6 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				E7A95F131BD21EE9000CBA11 /* TweetTableViewCell.swift */,
+				E7E90D561BD55BB500B4EF02 /* InstagramTableViewCell.swift */,
+				E754BD201BD6B9D500441951 /* FacebookTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -190,6 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				E7A95F0B1BD186A0000CBA11 /* TwitterClient.swift */,
+				E7E90D521BD4C52300B4EF02 /* InstagramClient.swift */,
+				E754BD1A1BD69E8900441951 /* FacebookClient.swift */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
@@ -330,16 +360,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E754BD1F1BD6B89400441951 /* FacebookViewController.swift in Sources */,
 				E7A95F101BD21B84000CBA11 /* TweetsViewController.swift in Sources */,
 				E7A95F061BD18501000CBA11 /* InstagramUser.swift in Sources */,
+				E7E90D531BD4C52300B4EF02 /* InstagramClient.swift in Sources */,
+				E7E90D571BD55BB500B4EF02 /* InstagramTableViewCell.swift in Sources */,
+				E754BD1B1BD69E8900441951 /* FacebookClient.swift in Sources */,
 				E75A66FC1BD17E1C002C6E04 /* LoginViewController.swift in Sources */,
 				E7A95F141BD21EE9000CBA11 /* TweetTableViewCell.swift in Sources */,
 				E7A95F121BD21BC5000CBA11 /* Tweet.swift in Sources */,
 				E7A95F0E1BD1CFB6000CBA11 /* ContainerViewController.swift in Sources */,
+				E754BD1D1BD69EC400441951 /* FacebookUser.swift in Sources */,
 				E75A66FA1BD17E1C002C6E04 /* AppDelegate.swift in Sources */,
 				E7A95F041BD184EF000CBA11 /* TwitterUser.swift in Sources */,
+				E7E90D551BD559EA00B4EF02 /* InstagramViewController.swift in Sources */,
 				E7A95F0C1BD186A0000CBA11 /* TwitterClient.swift in Sources */,
-				E7A95F021BD184E4000CBA11 /* User.swift in Sources */,
+				E754BD211BD6B9D500441951 /* FacebookTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +504,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/rbammi/Documents/FacebookSDKs-iOS-20151007";
 				INFOPLIST_FILE = SocialConnector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,6 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/rbammi/Documents/FacebookSDKs-iOS-20151007";
 				INFOPLIST_FILE = SocialConnector/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
